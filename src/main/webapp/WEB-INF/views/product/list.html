@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="/product/layout::css">
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<h1>================= Quản lý sản phầm =================</h1>
+
+<a th:href="@{/product/create}">
+    <button style="margin: 10px; color: #3737de; cursor:pointer ">
+        Create Product
+    </button>
+</a>
+
+<table border="1" style=" border-collapse: collapse">
+    <tr>
+        <th>STT</th>
+        <th>NAME</th>
+        <th>IMAGE</th>
+        <th>QUANTITY</th>
+        <th colspan="2">ACTION</th>
+    </tr>
+    <tr th:each="pd:${listProduct}">
+        <td th:text="${pd.id}"></td>
+        <td>
+            <a th:text="${pd.name}" th:href="@{product/{id}/(id=${pd.id})}"></a>
+        </td>
+        <td th:text="${pd.image}"></td>
+        <td th:text="${pd.quantity}"></td>
+        <td>
+            <a th:href="@{/product/edit/{id}/(id=${pd.id})}">
+                <button style="background-color: #942398;color: white ; cursor: pointer; margin: 2px">
+                    Edit
+                </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/product/delete/{id}/(id=${pd.id})}">
+                <button style="background-color: #982331;color: white ; cursor: pointer; margin: 2px">
+                    Delete
+                </button>
+            </a>
+
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

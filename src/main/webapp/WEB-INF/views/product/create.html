@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="/product/layout::css">
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+</head>
+<body>
+<h1>================= Thêm mới sản phầm =================</h1>
+<a th:href="@{/}">Back</a>
+
+<form th:action="@{/product/create}" method="post" th:object="${productCreate}">
+
+    <lable>Name</lable>
+    <br>
+    <input type="text" th:field="*{name}"> <br>
+
+    <lable>IMAGE</lable>
+    <br>
+    <input type="text" th:field="*{image}"> <br>
+
+    <lable>QUANTITY</lable>
+    <br>
+    <input type="text" th:field="*{quantity}"> <br>
+
+    <br>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

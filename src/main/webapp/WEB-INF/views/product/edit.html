@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head th:replace="/product/layout::css">
+    <meta charset="UTF-8">
+    <title>Edit Form</title>
+</head>
+<body>
+<h1>================= Sửa sản phầm =================</h1>
+<a th:href="@{/}">Back</a>
+
+<form method="post" th:object="${productEdit}" th:action="@{/product/edit}">
+    <table border="1" style=" border-collapse: collapse">
+        <tr>
+            <th>STT</th>
+            <th>NAME</th>
+            <th>IMAGE</th>
+            <th>QUANTITY</th>
+            <th>ACTION</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" th:field="*{id}" readonly>
+            </td>
+            <td>
+                <input type="text" th:value="${productEdit.name}" th:field="*{name}">
+            </td>
+            <td>
+                <input type="text" th:value="${productEdit.image}" th:field="*{image}">
+            </td>
+            <td>
+                <input type="text" th:value="${productEdit.quantity}" th:field="*{quantity}">
+            </td>
+            <td>
+                <button type="submit">Update</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
